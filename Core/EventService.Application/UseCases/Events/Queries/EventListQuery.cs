@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EventService.Application.UseCases.Events.ViewModels;
 using EventService.Domain.Interfaces;
+using EventService.SharedLibrary.Constants;
 using EventService.SharedLibrary.Model.ResponseModel;
 using FluentValidation;
 using MediatR;
@@ -32,15 +33,25 @@ namespace EventService.Application.UseCases.Events.Queries
         {
             private readonly IEventService _eventService;
             private readonly IMapper _mapper;
+            private readonly IRedisService _redisService;
 
-            public QueryHandler(IEventService eventService, IMapper mapper)
+            public QueryHandler(IEventService eventService, IMapper mapper, IRedisService redisService)
             {
                 _eventService = eventService;
                 _mapper = mapper;
+                _redisService = redisService;
+
             }
 
             public async Task<PaginatedResult<IEnumerable<EventResponse>>> Handle(Query request, CancellationToken cancellationToken)
             {
+                var cacheKey = $"{EventConstants.AppName}:pageIndex-{request.pageIndex}:pagesize-{request.pageSize}";
+                var cacheResult = await _redisService.GetAsync<PaginatedResult<IEnumerable<EventResponse>>>(cacheKey);
+
+                if (cacheResult != null)
+                {
+                    return cacheResult;
+                }
                 var response = new PaginatedResult<IEnumerable<EventResponse>>();
 
                 var (result, pageparams) = await _eventService.GetPagedEventAsync(request.pageIndex, request.pageSize);
@@ -48,6 +59,7 @@ namespace EventService.Application.UseCases.Events.Queries
                 //check for when result is null
                 response.PageParams = pageparams;
                 response.Response = _mapper.Map<IEnumerable<EventResponse>>(result);
+                await _redisService.SetAsync(cacheKey, response, cacheTimeInMinutes: 2);
                 return response;
             }
         }
