@@ -14,26 +14,21 @@ namespace EventService.Persistence.DatabaseContext
 
         public DbSet<Event> Events => this.Set<Event>();
 
-        //public DbSet<User> Users => this.Set<User>();
-
-        public int SaveChanges()
+        public override int SaveChanges()
         {
             this.SetEntityTimeProperties();
             var result = base.SaveChanges();
             return result;
         }
 
-        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             this.SetEntityTimeProperties();
             var result = await base.SaveChangesAsync(cancellationToken);
             return result;
         }
 
-        /// <summary>
-        /// OnModelCreating.
-        /// </summary>
-        /// <param name="modelBuilder">modelBuilder.</param>
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new EventConfiguration());
@@ -56,7 +51,7 @@ namespace EventService.Persistence.DatabaseContext
 
             foreach (var entity in modifiedEntities)
             {
-                PropertyInfo propertyInfo = entity.GetType().GetProperty("UpdatedAt");
+                PropertyInfo propertyInfo = entity.GetType().GetProperty("UpdatedAt")!;
                 if (propertyInfo != null)
                 {
                     propertyInfo.SetValue(entity, DateTime.UtcNow);
@@ -72,7 +67,7 @@ namespace EventService.Persistence.DatabaseContext
 
             foreach (var entity in newEntities)
             {
-                PropertyInfo propertyInfo = entity.GetType().GetProperty("CreatedAt");
+                PropertyInfo propertyInfo = entity.GetType().GetProperty("CreatedAt")!;
                 if (propertyInfo != null)
                 {
                     propertyInfo.SetValue(entity, DateTime.UtcNow);
