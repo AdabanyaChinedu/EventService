@@ -34,7 +34,9 @@ namespace EventService.Application.UseCases.Events.Commands
                 RuleFor(x => x.UserId)
                     .NotEmpty()
                     .NotEqual(default(int))
-                    .WithMessage("The value must be a valid non-default integer");
+                    .WithMessage("The value must be a valid non-default integer")
+                    .InclusiveBetween(1, 10)
+                    .WithMessage("Invalid UserId. Must be between 1 and 10");
 
                 RuleFor(x => x.TimeZone)
                     .NotNull()
