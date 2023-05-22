@@ -9,19 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0027FDC2-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{884FA7AB-E0CA-4D50-AC63-F0060F5C4199}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventService.API", "Presentation\EventService.API\EventService.API.csproj", "{7AA11953-5F13-43B6-8D2F-3E3F56052DDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventService.API", "Presentation\EventService.API\EventService.API.csproj", "{7AA11953-5F13-43B6-8D2F-3E3F56052DDB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C00D48F5-EF0D-4F06-9867-4AB60DCD960C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventService.Infrastructure", "Infrastructure\EventService.Infrastructure\EventService.Infrastructure.csproj", "{1FD8FFC7-7100-40C4-9CAF-E3B19E1949C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventService.Infrastructure", "Infrastructure\EventService.Infrastructure\EventService.Infrastructure.csproj", "{1FD8FFC7-7100-40C4-9CAF-E3B19E1949C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventService.Persistence", "Infrastructure\EventService.Persistence\EventService.Persistence.csproj", "{1754BE4B-6692-47E4-B9FE-9415741FBBE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventService.Persistence", "Infrastructure\EventService.Persistence\EventService.Persistence.csproj", "{1754BE4B-6692-47E4-B9FE-9415741FBBE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventService.Domain", "Core\EventService.Domain\EventService.Domain.csproj", "{9DE93933-17D4-49C2-81DE-3C7133ACA5FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventService.Domain", "Core\EventService.Domain\EventService.Domain.csproj", "{9DE93933-17D4-49C2-81DE-3C7133ACA5FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventService.Common", "EventService.Application\EventService.Common.csproj", "{6003C29D-22D5-4D86-973B-3229A6F86771}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventService.Application", "Core\EventService.Application\EventService.Application.csproj", "{33B6F05B-562E-45F9-911B-F97CA13260A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventService.Application", "Core\EventService.Application\EventService.Application.csproj", "{33B6F05B-562E-45F9-911B-F97CA13260A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventService.SharedLibrary", "EventService.SharedLibrary\EventService.SharedLibrary.csproj", "{444F64CB-EC08-484B-87C0-073A395029AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,14 +45,14 @@ Global
 		{9DE93933-17D4-49C2-81DE-3C7133ACA5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DE93933-17D4-49C2-81DE-3C7133ACA5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DE93933-17D4-49C2-81DE-3C7133ACA5FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6003C29D-22D5-4D86-973B-3229A6F86771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6003C29D-22D5-4D86-973B-3229A6F86771}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6003C29D-22D5-4D86-973B-3229A6F86771}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6003C29D-22D5-4D86-973B-3229A6F86771}.Release|Any CPU.Build.0 = Release|Any CPU
 		{33B6F05B-562E-45F9-911B-F97CA13260A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33B6F05B-562E-45F9-911B-F97CA13260A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33B6F05B-562E-45F9-911B-F97CA13260A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33B6F05B-562E-45F9-911B-F97CA13260A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{444F64CB-EC08-484B-87C0-073A395029AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{444F64CB-EC08-484B-87C0-073A395029AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{444F64CB-EC08-484B-87C0-073A395029AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{444F64CB-EC08-484B-87C0-073A395029AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,8 +62,8 @@ Global
 		{1FD8FFC7-7100-40C4-9CAF-E3B19E1949C4} = {884FA7AB-E0CA-4D50-AC63-F0060F5C4199}
 		{1754BE4B-6692-47E4-B9FE-9415741FBBE7} = {884FA7AB-E0CA-4D50-AC63-F0060F5C4199}
 		{9DE93933-17D4-49C2-81DE-3C7133ACA5FF} = {0027FDC2-DA72-45A8-9BE9-96E253AEB4F1}
-		{6003C29D-22D5-4D86-973B-3229A6F86771} = {C00D48F5-EF0D-4F06-9867-4AB60DCD960C}
 		{33B6F05B-562E-45F9-911B-F97CA13260A0} = {0027FDC2-DA72-45A8-9BE9-96E253AEB4F1}
+		{444F64CB-EC08-484B-87C0-073A395029AA} = {C00D48F5-EF0D-4F06-9867-4AB60DCD960C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {71B126E6-72A2-4486-8E8C-C02597D4A08A}
