@@ -63,5 +63,29 @@ namespace EventService.IntegrationTests.EventEndpoints
             Assert.Equal(StartDate, model.Response.StartDate);
             Assert.Equal(EndDate, model.Response.EndDate);
         }
+
+
+        [Fact]
+        public async Task CreateEventReturns400GivenInValidParameters()
+        {
+            var requestBody = new
+            {
+                Event = new EventData
+                {
+                    Title = Title,
+                    Description = Description,
+                    Location = Location,
+                    StartDate = StartDate,
+                    EndDate = EndDate,
+                    TimeZone = "Any timezone",
+                    UserId = 11,
+                },
+            }.ToJson<object>();
+
+            var payload = new StringContent(requestBody, Encoding.UTF8, "application/json");
+
+            var response = await _client.PostAsync(EventScenariosBase.Post.CreateEventUrl, payload);
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        }
     }
 }
