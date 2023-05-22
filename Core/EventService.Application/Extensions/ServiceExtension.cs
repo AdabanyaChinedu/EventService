@@ -1,5 +1,5 @@
-﻿using AaasSettingsService.Application.Common.Behavior;
-using EventService.Application.AutoMapperConfig;
+﻿using EventService.Application.AutoMapperConfig;
+using EventService.Application.Common.Behavior;
 using EventService.Domain.Interfaces;
 using FluentValidation;
 using MediatR;
