@@ -26,11 +26,6 @@ namespace EventService.Domain.Entities
             Id = id;
         }
 
-        public Event(Guid id)
-        {
-            Id = id;
-        }
-
         protected Event()
         {
         }
