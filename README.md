@@ -60,11 +60,11 @@ Before running the Event API, ensure that you have the following prerequisites i
 
    The Event API provides the following endpoints:
 
-    - `GET /api/events` - Get all events (paginated).
-    - `GET /api/events/{id}` - Get an event by ID.
-    - `POST /api/events` - Create a new event.
-    - `PUT /api/events/{id}` - Update an existing event.
-    - `DELETE /api/events/{id}` - Delete an event.
+    - `GET /api/v1/events` - Get all events (paginated).
+    - `GET /api/v1/events/{id}` - Get an event by ID.
+    - `POST /api/v1/events` - Create a new event.
+    - `PUT /api/v1/events/{id}` - Update an existing event.
+    - `DELETE /api/v1/events/{id}` - Delete an event.
 
    For detailed information on the request and response formats, please refer to the API documentation available at `http://localhost:5000/swagger` when the   
     application is running.
